@@ -54,19 +54,19 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'coffeedapp.urls'
 
 TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
+{
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [os.path.join(MAIN_DIR, 'templates')],
+    'APP_DIRS': True,
+    'OPTIONS': {
+        'context_processors': [
+            'django.template.context_processors.debug',
+            'django.template.context_processors.request',
+            'django.contrib.auth.context_processors.auth',
+            'django.contrib.messages.context_processors.messages',
+        ],
     },
+},
 ]
 
 WSGI_APPLICATION = 'coffeedapp.wsgi.application'
@@ -111,11 +111,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-
-TEMPLATE_DIRS = (
-    os.path.join(MAIN_DIR, 'templates'),
-    )
-
-STATICFILES_DIRS = ( 
-os.path.join(MAIN_DIR, 'static'), 
+TEMPLATE_DIR = (
+os.path.join(MAIN_DIR, 'templates'),
 )
+STATICFILES_DIRS = (
+os.path.join(MAIN_DIR, 'static'),
+)
+STATIC_ROOT = 'staticfiles'
