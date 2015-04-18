@@ -78,9 +78,6 @@ WSGI_APPLICATION = 'coffeedapp.wsgi.application'
 ON_HEROKU = os.environ.get('ON_HEROKU')
 
 
-
-
-
 if ON_HEROKU == True:
 
     # Parse database configuration from $DATABASE_URL
