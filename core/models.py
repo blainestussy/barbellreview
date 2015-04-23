@@ -7,6 +7,13 @@ from geoposition.fields import GeopositionField
 import os
 import uuid
 
+def upload_to_location(instance, filename):
+    blocks = filename.split('.')
+    ext = blocks[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    instance.title = blocks[0]
+    return os.path.join('uploads/', filename)
+
 RATING_CHOICES = (
     (0, 'None'),
     (1, '*'),
@@ -45,12 +52,7 @@ GYM_CHOICES = (
  )
 
 
-def upload_to_location(instance, filename):
-    blocks = filename.split('.')
-    ext = blocks[-1]
-    filename = "%s.%s" % (uuid.uuid4(), ext)
-    instance.title = blocks[0]
-    return os.path.join('uploads/', filename)
+
 
 # Create your models here.
 
@@ -75,7 +77,7 @@ class Location(models.Model):
          return self.title
 
     def get_absolute_url(self):
-     return reverse(viewname="location_list", args=[self.id])
+     return reverse(viewname="location_detail", args=[self.id])
 
     def get_average_rating(self):
         average = self.review_set.all().aggregate(Avg('rating'))['rating__avg']
