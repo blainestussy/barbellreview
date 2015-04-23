@@ -1,19 +1,107 @@
 {% extends "base/theme.html" %}
+{% block scripts %}
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="{{ STATIC_URL }}theme/js/gmaps.js"></script>
+<script src="{{ STATIC_URL }}theme/js/maps.js"></script>
+{% endblock %}
 {% block main_content %}
-<div class="row main-content">
+<div class="data-layer">
+    <ul>
+        <li class="location-data" data-latitude="{{ location.position.latitude }}" data-longitude="{{ location.position.longitude }}">{{ location.title }}</li>
+    </ul>
+</div>
+<div class="header-buffer">
+</div>
+<!-- Services Section -->
+<section id="services">
+    <div class="container">
+        <div class="" >
+            <div id="details">
+<div class="col-md-12">
 <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-        <div class='panel'>
-        <h3>{{ location.title }}</h3>
-         {% if location.address %}<p><b>Location: </b>{{ location.address }}</p>{% endif %}
- {% if location.hours %}<p>{{ location.hours }}</p>{% endif %}
-        <p>{{ location.description }}</p>
-         {% if location.image_file %}
- <img class="img-responsive" src="{{ location.image_file.url }}"></img>
- {% endif %}
+                            <div class="col-md-8">
+                            <h2>{{ location.title }}</h2>
+                            </div>
+                            <div class="col-md-4 text-right">
+                            <h2>{% include 'base/rating.html' with rating=location.get_average_rating %}</h2>
+                            </div>
+
+
+                            </div>
+
+                <div class="col-md-8">
+                    <div class="row">
+                            {% if location.image_file %}
+                        <div class="col-md-12" >
+                        
+                        <img src="{{ location.image_file.url }}" class="img-responsive img-centered full-width" alt="">
+
+                      </div>
+                      {% endif %}
+                  
+                  <div class="row">
+                    <div class="col-md-12" >{% include 'location/specifics.html' with location=location %}
+                    </div>
+                </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="">{{ location.description}}</p>
+                        <div class="">
+                            {% if user.is_authenticated %}
+                            <a type="button" href="{% url 'location_update' pk=location.id %}" class="btn btn-default">Edit</a>
+                            {% endif %}
+
+                        </div>
+            </div>
+        </div>
+        </div>
+            </div>
+            
+            <div class="col-md-4 panel">
+                <div class="wide-map short-map" id="map"></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-6 text-center">
+                <br>
+                    {% if location.address %}<p>{{ location.address }}</p>{% endif %}
+                    {% if location.phone %}<p>{{ location.phone }}</p>{% endif %}
+                    {% if location.website %}<p><a href="{{ location.website }}">{{ location.website }}</a></p>{% endif %}
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="reviews">
+    <div class="col-md-12">
+    <hr>
+                {% if user.is_authenticated %}
+                        {% if user_review %}
+                        <a type="button" href="{% url 'review_update' pk=location.id %}" class="btn btn-default pull-right">Update Review</a>
+                        {% else %}
+                        <a type="button" href="{% url 'review_create' pk=location.id %}" class="btn btn-default pull-right">Add Your Review</a>
+                        {% endif %}
+                {% endif %}
+    </div>
+
+        <div>
+            <div class="col-md-8">
+                {% if user_review %}
+                {% with user_review as review %}
+                <div>
+                    {% include 'base/review.html' %}
+                </div>
+
+
+                {% endwith %}
+                {% endif %}
+                {% for review in reviews %}
+                {% include 'location/review.html' %}
+                <hr>
+                {% endfor %}
+            </div>
         </div>
     </div>
-    <div class="col-md-2"></div>
-</div></div>
+</div>
+</section>
 {% endblock %}

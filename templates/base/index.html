@@ -1,5 +1,4 @@
 {% load staticfiles %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>BARBELLREVIEW.com</title>
+    <title>Barbellreview.com</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
@@ -25,6 +24,7 @@
     <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,7 +38,7 @@
 <body id="page-top" class="index">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -48,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="/">BarbellReveiw.com</a>
+                <a class="navbar-brand page-scroll" href="/">Barbellreiview.com</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -59,7 +59,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">How it works</a>
+                        <a class="page-scroll" href="#services">How It Works</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#team">Our Team</a>
@@ -69,162 +69,152 @@
                     </li>
                     {% endblock %}
                 </ul>
+                {% block search %}
+                {% endblock %}
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
 
-
-{% block main_content %}
+    {% block main_content %}
     <!-- Header -->
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Barbell Review</div>
-                <div class="intro-heading">Provide reviews of gyms and barbell clubs</div>
-                <a href="#services" class="page-scroll btn btn-xl">How it works</a>
+                <div class="intro-heading">Barbellreview.com</div>
+                <div class="intro-lead-in">Provide your honest review of gyms you have trained at.  Help others find great gyms and avoid the bad.</div>
+                <a href="#services" class="page-scroll btn btn-xl">How It Works</a>
             </div>
         </div>
     </header>
+    
 
-  <!-- Services Section -->
- <section id="services">
- <div class="container">
- <div class="row">
- <div class="col-lg-12 text-center">
- <h2 class="section-heading">How It Works</h2>
- 
- </div>
- </div>
- <div class="row text-center">
- <div class="col-md-4">
- <img class="coffeed-svg-icon" src="{% static "img/svg/python_flag.svg" %}"></>
- <h4 class="service-heading">Discover Other Gyms</h4>
- <p class="text-muted">BarbellReview works hard to curate the best gyms for independent facilities</p>
- </div>
- <div class="col-md-4">
- <img class="coffeed-svg-icon" src="{% static "img/svg/python_badge.svg" %}"></>
- <h4 class="service-heading">Review Your Gym</h4>
- <p class="text-muted">Find out what other people are saying and provide your opinion. Help each other find the best gym</p>
- </div>
- <div class="col-md-4">
- <img class="coffeed-svg-icon" src="{% static "img/svg/python_rocket.svg" %}"></>
- <h4 class="service-heading">Promote Your Gym</h4>
- <p class="text-muted">Anyone can add their Gym location to BarbellReview for free.</p>
- </div>
- </div>
- </div>
- </section>
-
-    <!-- Team Section -->
-   <!-- Team Section -->
- <section id="team" class="bg-light-gray">
- <div class="container">
- <div class="row">
- <div class="col-lg-12 text-center">
- <h2 class="section-heading">Our Caffeinated Team</h2>
- <h3 class="section-subheading text-muted">Working hard to find you the best of the best.</h3>
- </div>
- </div>
- <div class="row">
- <div class="col-sm-4">
- <div class="team-member">
- <img src="{% static "img/team/1.jpg" %}" class="img-responsive img-circle" alt="">
- <h4>Kristina Zmaic</h4>
- <p class="text-muted">Founder & Designer</p>
- <ul class="list-inline social-buttons">
- <li><a href="https://twitter.com/kzmaic"><i class="fa fa-twitter"></i></a>
- </li>
- <li><a href="https://instagram.com/kzmaic/"><i class="fa fa-instagram"></i></a>
- </li>
- </ul>
- </div>
- </div>
- <div class="col-sm-4">
- <div class="team-member">
- <img src="{% static "img/team/2.jpg" %}" class="img-responsive img-circle" alt="">
- <h4>Eric Neuman</h4>
- <p class="text-muted">Web & Business Development</p>
- <ul class="list-inline social-buttons">
- <li><a href="https://twitter.com/eric_neuman"><i class="fa fa-twitter"></i></a>
- </li>
- <li><a href="https://instagram.com/eric_neuman"><i class="fa fa-instagram"></i></a>
- </li>
- <li><a href="https://www.linkedin.com/in/ericneuman"><i class="fa fa-linkedin"></i></a>
- </li>
- </ul>
- </div>
- </div>
- <div class="col-sm-4">
- <div class="team-member">
- <img src="{% static "img/team/3.jpg" %}" class="img-responsive img-circle" alt="">
- <h4>Chris Castiglione</h4>
- <p class="text-muted">Project Management</p>
- <ul class="list-inline social-buttons">
- <li><a href="https://twitter.com/castig"><i class="fa fa-twitter"></i></a>
- </li>
- <li><a href="https://instagram.com/castig"><i class="fa fa-instagram"></i></a>
- </li>
- <li><a href="http://www.linkedin.com/in/castig"><i class="fa fa-linkedin"></i></a>
- </li>
- </ul>
- </div>
- </div>
- </div>
- <div class="row">
- <div class="col-lg-8 col-lg-offset-2 text-center">
- <p class="large text-muted">We're three geeks who love coffee, working, and building things — and wanted to map out all the best coffee locations where we would work with ease in our neighborhood.</p>
- </div>
- </div>
- </div>
- </section>
-
-
-    <section id="contact">
+    <!-- Services Section -->
+    <section id="services">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Send us a message</h3>
+                    <h2 class="section-heading">How It Works</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-
-    <div id="mc_embed_signup">
-    <form action="//barbellreview.us10.list-manage.com/subscribe/post?u=6961e7fb5a41b5ea6623e1464&amp;id=a048610d52" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-        <div class="form-group">
-            <input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="email address" required style="width: 300px;">
-        </div>
-        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
-    </form>
-</div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <img class="coffeed-svg-icon" src="{% static "img/svg/python_flag.svg" %}"></>
+                    <h4 class="service-heading">Discover Badass Gyms</h4>
+                    <p class="text-muted">Barbellreview.com allows anyone to proivde their opinion on a gym, fitness center or even a small garage gym.</p>
+                </div>
+                <div class="col-md-4">
+                    <img class="coffeed-svg-icon" src="{% static "img/svg/python_badge.svg" %}"></>
+                    <h4 class="service-heading">Review Your Favorites</h4>
+                    <p class="text-muted">Find out what other people are saying and chime in with your opinion. Help each other find the best work locale.</p>
+                </div>
+                <div class="col-md-4">
+                    <img class="coffeed-svg-icon" src="{% static "img/svg/python_rocket.svg" %}"></>
+                    <h4 class="service-heading">Promote Your Facility</h4>
+                    <p class="text-muted">Anyone can add their gym location to barbellreview.com for free. Sit back, relax & watch the read the reviews.</p>
                 </div>
             </div>
         </div>
     </section>
 
-   {% endblock %}
+
+    <!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Our Team</h2>
+                    <h3 class="section-subheading text-muted">Working hard to find you the best of the best.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="{% static "img/team/1.jpg" %}" class="img-responsive img-circle" alt="">
+                        <h4>Blaine Stussy</h4>
+                        <p class="text-muted">Founder & Designer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="https://twitter.com/kzmaic"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="https://instagram.com/kzmaic/"><i class="fa fa-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="{% static "img/team/2.jpg" %}" class="img-responsive img-circle" alt="">
+                        <h4>Donnie Thompson</h4>
+                        <p class="text-muted">Professional Trainer / Expert</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="https://twitter.com/eric_neuman"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="https://instagram.com/eric_neuman"><i class="fa fa-instagram"></i></a>
+                            </li>
+                            <li><a href="https://www.linkedin.com/in/ericneuman"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="{% static "img/team/3.jpg" %}" class="img-responsive img-circle" alt="">
+                        <h4>Tommy Fannon</h4>
+                        <p class="text-muted">Sr Engineer / Gym Expert</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="https://twitter.com/castig"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="https://instagram.com/castig"><i class="fa fa-instagram"></i></a>
+                            </li>
+                            <li><a href="http://www.linkedin.com/in/castig"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+<div class="col-lg-12">
+                        <h2 class="section-heading">Be the first to find out.</h2>
+                        <div id="mc_embed_signup">
+                            <form action="//onemonth.us1.list-manage.com/subscribe/post?u=146c16ed7f6726f54d234b212&amp;id=edb5855387" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                <div class="form-group">
+                                    <input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="email address" required style="width: 300px;">
+                                </div>
+                                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
 
     <footer>
         <div class="container">
+            {% block pagination %}
+            {% endblock %}
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2014</span>
+                    <span class="copyright">Copyright &copy; barbellreview.com 2015</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        <li><a href="https://twitter.com/getcoffeed"><i class="fa fa-twitter"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        <li><a href="https://www.facebook.com/getcoffeed"><i class="fa fa-facebook"></i></a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
+                        <li><a href="#">Get In Touch</a>
+                        </li>
                         <li><a href="#">Privacy Policy</a>
                         </li>
                         <li><a href="#">Terms of Use</a>
@@ -259,7 +249,7 @@
                             <p>
                                 <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.</p>
                             <ul class="list-inline">
-                                <li>Date: July 2014</li>
+                                <li>Date: July 2015</li>
                                 <li>Client: Round Icons</li>
                                 <li>Category: Graphic Design</li>
                             </ul>
@@ -286,7 +276,7 @@
                         <div class="modal-body">
                             <h2>Project Heading</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-responsive img-centered" src="{% static "img/portfolio/startup-framework-preview.png" %}"  alt="">
+                            <img class="img-responsive img-centered" src="{% static "img/portfolio/startup-framework-preview.png" %}" alt="">
                             <p><a href="http://designmodo.com/startup/?u=787">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
                             <p>You can preview Startup Framework <a href="http://designmodo.com/startup/?u=787">here</a>.</p>
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
@@ -407,18 +397,19 @@
 
     <!-- jQuery -->
     <script src="{% static "js/jquery.js" %}"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="{% static "js/gmaps.js" %}"></script>
+    <script src="{% static "js/maps.js" %}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js"%}"></script>
 
     <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="{% static "js/classie.js" %}"></script>
-    <script src="{% static "js/cbpAnimatedHeader.js" %}"></script>
 
 
     <!-- Custom Theme JavaScript -->
-    <script src="{% static "js/agency.js" %}"></script>
+    <script src="{% static "js/agency.js"%}"></script>
 
 </body>
 
