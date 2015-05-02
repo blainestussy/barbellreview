@@ -37,7 +37,6 @@ class LocationDetailView(DetailView):
                 context['user_review'] = user_reviews[0]
             else:
                 context['user_review'] = None
-
         return context
 
 class LocationCreateView(CreateView):

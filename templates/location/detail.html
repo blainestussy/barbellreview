@@ -48,10 +48,15 @@
                 <p class="">{{ location.description}}</p>
                         <div class="">
                             {% if user.is_authenticated %}
-                            <a type="button" href="{% url 'location_update' pk=location.id %}" class="btn btn-default">Edit</a>
-                            {% endif %}
+                            <a type="button" href="{% url 'location_update' pk=location.id %}" class="btn btn-default">Edit</a>{% endif %}
+                <div class="col-md-12">
+                {% for review in location.get_reviews %}
+                {% include 'base/review.html' with location=location %}
 
+                {% endfor %}
+                </div>
                         </div>
+
             </div>
         </div>
         </div>
@@ -64,16 +69,34 @@
                 <br>
                     {% if location.address %}<p>{{ location.address }}</p>{% endif %}
                     {% if location.phone %}<p>{{ location.phone }}</p>{% endif %}
-                    {% if location.website %}<p><a href="{{ location.website }}">{{ location.website }}</a></p>{% endif %}
+                    {% if location.website %}<p><a href="{{ location.website }}">{{ location.website }}</a></p>
+                    {% endif %}
                 </div>
-                <div class="col-md-3"></div>
             </div>
             </div>
         </div>
 
     </div>
     <div id="reviews">
+
+            <div class="col-md-8">
+                   {% if user_review %}
+                   {% with user_review as review %}
+                <div>
+                   {% include 'base/review.html' %}
+                </div>
+                   {% endwith %}
+                   {% endif %}
+                   {% for review in reviews %}
+                   {% include 'base/review.html' %}
+                <hr>
+                   {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
     <div class="col-md-12">
+     
     <hr>
                 {% if user.is_authenticated %}
                         {% if user_review %}
@@ -82,27 +105,7 @@
                         <a type="button" href="{% url 'review_create' pk=location.id %}" class="btn btn-default pull-right">Add Your Review</a>
                         {% endif %}
                 {% endif %}
-    </div>
 
         <div>
-            <div class="col-md-8">
-                {% if user_review %}
-                {% with user_review as review %}
-                <div>
-                    {% include 'base/review.html' %}
-                </div>
-
-
-                {% endwith %}
-                {% endif %}
-                {% for review in reviews %}
-                {% include 'location/review.html' %}
-                <hr>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-</div>
-
 </section>
 {% endblock %}
