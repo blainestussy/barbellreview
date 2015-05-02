@@ -48,7 +48,8 @@
                 <p class="">{{ location.description}}</p>
                         <div class="">
                             {% if user.is_authenticated %}
-                            <a type="button" href="{% url 'location_update' pk=location.id %}" class="btn btn-default">Edit</a>{% endif %}
+                            <a type="button" href="{% url 'location_update' pk=location.id %}" class="btn btn-default">Edit Info</a>{% endif %}
+                            <hr>
                 <div class="col-md-12">
                 {% for review in location.get_reviews %}
                 {% include 'base/review.html' with location=location %}
@@ -92,10 +93,7 @@
                 <hr>
                    {% endfor %}
             </div>
-        </div>
-    </div>
-</div>
-    <div class="col-md-12">
+                <div class="col-md-8">
      
     <hr>
                 {% if user.is_authenticated %}
@@ -107,5 +105,11 @@
                 {% endif %}
 
         <div>
+        </div>
+    </div>
+
+
+</div>
+
 </section>
 {% endblock %}
