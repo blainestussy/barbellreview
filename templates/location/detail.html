@@ -79,9 +79,10 @@
 
     </div>
     <div id="reviews">
-
             <div class="col-md-8">
                    {% if user_review %}
+                   <hr>
+                   <h5>Your Review</h5>
                    {% with user_review as review %}
                 <div>
                    {% include 'base/review.html' %}

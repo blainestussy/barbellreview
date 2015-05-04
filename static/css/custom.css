@@ -64,7 +64,7 @@ text-transform: none;
 }
 
 .navbar-default .navbar-brand {
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #d4a432;
 }
 
@@ -117,11 +117,11 @@ border-color: #ddd;
 
 header .intro-text .intro-lead-in {
     margin-bottom: 25px;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 40px;
-    font-style: italic;
+    font-style: normal;
     line-height: 40px;
-    color: #d4a432;
+    color: #ffffff;
 }
 
 header {

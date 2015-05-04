@@ -95,3 +95,7 @@ class Review(models.Model):
     description = models.TextField(null=True, blank=True)
     rating = models.IntegerField(choices=RATING_CHOICES, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+
+    
