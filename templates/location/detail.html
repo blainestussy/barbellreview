@@ -81,9 +81,9 @@
     <hr>
     <div id="reviews">
             <div class="col-md-8">
-             <div class="bg-warning" style="padding: 15px;">
+             
                    {% if user_review %}
-                   
+              <div class="bg-warning" style="padding: 15px;">     
                    <h5>Your Review</h5>
                    {% with user_review as review %}
                 <div>
@@ -94,8 +94,9 @@
                    {% for review in reviews %}
                    {% include 'base/review.html' %}
                 <hr>
+                </div>
                    {% endfor %}
-               </div>
+               
             </div>
                 <div class="col-md-8">
      
