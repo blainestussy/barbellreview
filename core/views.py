@@ -21,7 +21,7 @@ class SearchListView(LocationListView):
 
     def get_queryset(self):
         incoming_query_string = self.request.GET.get('query', '')
-        return coremodels.Location.objects.filter(title__icontains=incoming_query_string)
+        return coremodels.Location.objects.filter(address__icontains=incoming_query_string)
 
 class LocationDetailView(DetailView):
     model = coremodels.Location
