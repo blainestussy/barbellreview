@@ -86,6 +86,16 @@
                 <div class="intro-heading"></div>
                 <div class="intro-lead-in">YOUR REVIEW MATTERS</div>
                 <a href="location/" class="page-scroll btn btn-xl">Find a Gym</a>
+
+{% block buttoncreateorlogin %}
+
+ {% if user.is_authenticated %}
+ <a class="page-scroll btn btn-xl" href="/location/create/">Add a Gym</a>
+ {% else %}
+ <a class="page-scroll btn btn-xl" href="/entrance/">Log In / Sign-Up</a>
+ {% endif %} 
+{% endblock %}
+
             </div>
         </div>
     </header>
@@ -147,25 +157,6 @@
             </div>
         </div>
     </section>
-
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-<div class="col-lg-12">
-                        <h2 class="section-heading">Be the first to find out.</h2>
-
-
-{% block buttoncreateorlogin %}
-
- {% if user.is_authenticated %}
- <a class="btn btn-primary" href="/location/create/">Add a Gym</a>
- {% else %}
- <a class="btn btn-primary" href="/entrance/">Log In / Sign-Up</a>
- {% endif %} 
-{% endblock %}
-
-
-</section>
                     </div>
             </div>
         </div>
