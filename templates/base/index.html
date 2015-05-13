@@ -155,8 +155,14 @@
                         <h2 class="section-heading">Be the first to find out.</h2>
 
 
- <a class="btn btn-primary" data-dismiss="modal" href="/entrance/">Log In / Sign-Up</a>
+{% block buttoncreateorlogin %}
 
+ {% if user.is_authenticated %}
+ <a class="btn btn-primary" href="/location/create/">Add a Gym</a>
+ {% else %}
+ <a class="btn btn-primary" href="/entrance/">Log In / Sign-Up</a>
+ {% endif %} 
+{% endblock %}
 
 
 </section>
