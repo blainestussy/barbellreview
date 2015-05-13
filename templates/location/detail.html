@@ -10,43 +10,38 @@
         <li class="location-data" data-latitude="{{ location.position.latitude }}" data-longitude="{{ location.position.longitude }}">{{ location.title }}</li>
     </ul>
 </div>
-<div class="header-buffer">
-</div>
+       <div class="header-buffer">
+       </div>
 <!-- Services Section -->
 <section id="services">
-    <div class="container">
+ <div class="container">
         <div class="" >
             <div id="details">
-<div class="col-md-12">
-<div class="row">
-                            <div class="col-md-8">
+              <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-8">
                             <h2>{{ location.title }}</h2>
-                            </div>
-                            <div class="col-md-4 text-right">
+                    </div>  <!-- end div col-md-8 row approx 22-->
+                    <div class="col-md-4 text-right">
                             <h2>{% include 'base/rating.html' with rating=location.get_average_rating %}</h2>
-                            </div>
+                    </div>  <!-- end div col-md-4 text-right row approx 25 -->
+                 </div>  <!-- end div row approx 21 -->
 
-
-                            </div>
-
-                <div class="col-md-8">
-                    <div class="row">
+<div class="col-md-8">
+    <div class="row">
                             {% if location.image_file %}
-                        <div class="col-md-12" >
-                        
+                      <div class="col-md-12" >
                         <img src="{{ location.image_file.url }}" class="img-responsive img-centered full-width" alt="">
-
-                      </div>
+                      </div>  <!-- end div col-md-12 row approx 33 -->
                       {% endif %}
-                  
-                  <div class="row">
-                    <div class="col-md-12" >{% include 'location/specifics.html' with location=location %}
-                    </div>
-                </div>
+           
+                    {% include 'location/specifics.html' with location=location %}
+                   
+           
         <div class="row">
             <div class="col-md-12">
                 <p class="">{{ location.description}}</p>
-                        <div class="">
+              <div class="">
                             {% if user.is_authenticated %}
                             <a type="button" href="{% url 'location_update' pk=location.id %}" class="btn btn-default pull-right">Edit Gym Info</a>{% endif %}
                             
@@ -58,13 +53,13 @@
                 {% include 'base/review.html' with location=location %}
 
                 {% endfor %}
-                </div>
-                        </div>
+                </div>  <!-- end div col-md-12 row approx 51-->
+              </div>  <!-- end div class "" row approx 45-->
 
-            </div>
-        </div>
-        </div>
-            </div>
+            </div>  <!-- end div col-md-12 row approx 43-->
+        </div>  <!-- end div class row approx 42-->
+    </div>  <!-- end div class row approx 31-->
+       </div>  <!-- end div for col-md-8 panel approx line 30 -->
             
             <div class="col-md-4 panel">
                 <div class="wide-map short-map" id="map"></div>
@@ -75,12 +70,12 @@
                     {% if location.phone %}<p>{{ location.phone }}</p>{% endif %}
                     {% if location.website %}<p><a href="{{ location.website }}">{{ location.website }}</a></p>
                     {% endif %}
-                </div>
-            </div>
-            </div>
-        </div>
+                </div>   <!-- end div for col-md-6 text-center panel approx line 68 -->
+            </div>  <!-- end div for col-md-4 panel approx line 65 -->
+           </div>  <!-- end div for col-md-12 approx line 20 -->
+        </div>  <!-- end div details approx line 19 -->
 
-    </div>
+    </div> <!-- end div for approx line 18 -->
     <hr>
     <div id="reviews">
             <div class="col-md-8">
@@ -99,10 +94,8 @@
                 <hr>
                 </div>
                    {% endfor %}
-               
-            </div>
-                <div class="col-md-12">
-     
+            </div><!-- end div for col-md-8 approx line 82 -->
+    <div class="col-md-12">
     <hr>
                 {% if user.is_authenticated %}
                         {% if user_review %}
@@ -111,13 +104,8 @@
                         <a type="button" href="{% url 'review_create' pk=location.id %}" class="btn btn-default pull-right">Add Your Review</a>
                         {% endif %}
                 {% endif %}
-
-        <div>
-        </div>
-    </div>
-
-
-</div>
-
+    </div>  <!-- end div for col-md-12 approx line 99-->
+  </div>  <!-- end div for reviews -->
+ </div>  <!-- end div for container  -->
 </section>
 {% endblock %}
