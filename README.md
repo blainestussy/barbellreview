@@ -1,2 +1,2 @@
 # coffeedapp
-# testing PSG with Commit Close via console
+# Test PSG Commit via console
